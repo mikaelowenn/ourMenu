@@ -1,5 +1,3 @@
-# mini_marketplace_app
+# Simple Menu App
 
-## Getting Started
-
-Still using default material ui, will be improved soon.
+## forked from [here](https://github.com/x4nn/flutter_mini_marketplace_app).
