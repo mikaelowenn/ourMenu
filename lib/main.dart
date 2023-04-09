@@ -12,7 +12,8 @@ import 'package:path_provider/path_provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  final Directory dir = await getExternalStorageDirectory() ?? await getApplicationDocumentsDirectory();
+  final Directory dir = await getExternalStorageDirectory() ??
+      await getApplicationDocumentsDirectory();
 
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: kIsWeb ? HydratedStorage.webStorageDirectory : dir,

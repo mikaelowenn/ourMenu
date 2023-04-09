@@ -13,7 +13,8 @@ class CatalogListItem extends StatelessWidget {
     return Stack(
       children: [
         Card(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
           margin: const EdgeInsets.all(0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -28,7 +29,8 @@ class CatalogListItem extends StatelessWidget {
                       fit: BoxFit.cover,
                     ),
                     borderRadius: BorderRadius.circular(15),
-                    color: Colors.blue,
+                    color: const Color.fromARGB(0, 238, 77, 45),
+                    //
                   ),
                 ),
               ),
@@ -44,11 +46,12 @@ class CatalogListItem extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Text('Rp${item.price}', style: textTheme.titleMedium),
+                          Text('RM${item.price}', style: textTheme.titleMedium),
                           Row(
                             children: [
                               const Icon(Icons.star, color: Colors.yellow),
-                              Text('${item.rating}', style: textTheme.bodyMedium),
+                              Text('${item.rating}',
+                                  style: textTheme.bodyMedium),
                             ],
                           ),
                         ],
@@ -65,7 +68,7 @@ class CatalogListItem extends StatelessWidget {
             color: Colors.transparent,
             borderRadius: BorderRadius.circular(15),
             child: InkWell(
-              splashColor: const Color.fromARGB(101, 33, 149, 243),
+              splashColor: Color.fromARGB(100, 49, 112, 163),
               onTap: () {
                 final route = MaterialPageRoute(
                   builder: (context) => ProductDetailPage(item: item),

@@ -25,22 +25,31 @@ class CheckoutButton extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    cart.totalSelectedItem < 1 ? "Checkout" : "Checkout (${cart.totalSelectedItem})",
-                    style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                    cart.totalSelectedItem < 1
+                        ? "Checkout"
+                        : "Checkout (${cart.totalSelectedItem})",
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold),
                   ),
                   cart.totalSelectedItem < 1
                       ? const SizedBox()
                       : Text(
-                          "Total Rp${cart.totalSelectedItemPrice}",
-                          style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w300),
+                          "Total RM${cart.totalSelectedItemPrice}",
+                          style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w300),
                         ),
                 ],
               ),
             ),
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.green,
+              backgroundColor: Color.fromARGB(255, 238, 77, 45),
               minimumSize: const Size(275, 75),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(25)),
               padding: const EdgeInsets.fromLTRB(20, 15, 10, 15),
             ),
           ),

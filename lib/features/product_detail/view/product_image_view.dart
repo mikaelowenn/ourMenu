@@ -23,15 +23,19 @@ class ProductImageView extends StatelessWidget {
       ],
       flexibleSpace: LayoutBuilder(
         builder: (context, constraints) {
-          // mendapatkan nilai 0.0 - 1.0 dari space pada flexibleSpaceBar
           // get value from 0.0 - 1.0 from flexiblespacebar space
-          sliverAppBarScrollFactor =
-              (constraints.biggest.height - (MediaQuery.of(context).padding.top + kToolbarHeight)) / (expandedSliverAppBarHeight - kToolbarHeight);
+          sliverAppBarScrollFactor = (constraints.biggest.height -
+                  (MediaQuery.of(context).padding.top + kToolbarHeight)) /
+              (expandedSliverAppBarHeight - kToolbarHeight);
 
           return Stack(
             children: [
-              ProductImage(sliverAppBarScrollFactor: sliverAppBarScrollFactor, item: item),
-              ProductTitle(item: item, sliverAppBarScrollFactor: sliverAppBarScrollFactor),
+              ProductImage(
+                  sliverAppBarScrollFactor: sliverAppBarScrollFactor,
+                  item: item),
+              ProductTitle(
+                  item: item,
+                  sliverAppBarScrollFactor: sliverAppBarScrollFactor),
             ],
           );
         },

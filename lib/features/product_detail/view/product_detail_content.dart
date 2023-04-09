@@ -23,14 +23,18 @@ class ProductDetailContent extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ExpansionTile(
-                        title: const Text("Deskripsi"),
+                        title: const Text("Description"),
+                        textColor: Colors.black,
                         initiallyExpanded: true,
                         children: [
                           Text(item.description),
                         ],
                       ),
                       ListTile(
-                        leading: const Icon(Icons.star),
+                        leading: const Icon(
+                          Icons.star,
+                          color: Colors.yellow,
+                        ),
                         title: Text("Rating : ${item.rating}"),
                       ),
                     ],

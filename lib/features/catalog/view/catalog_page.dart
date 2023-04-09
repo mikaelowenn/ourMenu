@@ -10,7 +10,9 @@ class CatalogPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Catalog"),
+        centerTitle: true,
+        title: const Text("Our Menu"),
+        backgroundColor: Colors.deepOrange,
         actions: [
           IconButton(
             iconSize: 32,
@@ -18,7 +20,7 @@ class CatalogPage extends StatelessWidget {
               child: Stack(
                 alignment: Alignment.topRight,
                 children: [
-                  const Center(child: Icon(Icons.shopping_cart)),
+                  const Center(child: Icon(Icons.shopping_bag_outlined)),
                   BlocBuilder<CartBloc, CartState>(
                     buildWhen: (previous, current) {
                       return current != previous ? true : false;
@@ -30,7 +32,8 @@ class CatalogPage extends StatelessWidget {
                       }
                       return Container(
                         width: 20,
-                        decoration: const BoxDecoration(shape: BoxShape.circle, color: Colors.red),
+                        decoration: const BoxDecoration(
+                            shape: BoxShape.circle, color: Colors.red),
                         child: Center(
                           child: Text(
                             "${cart.cartItemList.length}",
@@ -43,7 +46,7 @@ class CatalogPage extends StatelessWidget {
                 ],
               ),
             ),
-            tooltip: 'Keranjang',
+            tooltip: 'Cart',
             onPressed: () {
               final route = MaterialPageRoute(
                 builder: (context) => const CartPage(),

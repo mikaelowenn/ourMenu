@@ -10,11 +10,17 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Keranjang"), centerTitle: true),
+      appBar: AppBar(
+        title: const Text("Selected Menu"),
+        centerTitle: true,
+        backgroundColor: Colors.deepOrange,
+      ),
       body: const CartView(),
       bottomNavigationBar: BlocBuilder<CartBloc, CartState>(
         builder: (context, state) {
-          return state.cart.cartItemList.isEmpty ? const SizedBox(height: 100) : CheckoutButton(state: state);
+          return state.cart.cartItemList.isEmpty
+              ? const SizedBox(height: 100)
+              : CheckoutButton(state: state);
         },
       ),
     );

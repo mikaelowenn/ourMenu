@@ -21,9 +21,11 @@ class ProductDetailPage extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: ElevatedButton.icon(
               onPressed: () {
-                context.read<CartBloc>().add(CartEventAddItem(item: item, count: 1));
+                context
+                    .read<CartBloc>()
+                    .add(CartEventAddItem(item: item, count: 1));
                 Fluttertoast.cancel().whenComplete(() {
-                  Fluttertoast.showToast(msg: '"${item.title}" telah dimasukkan ke keranjang');
+                  Fluttertoast.showToast(msg: '"${item.title}" added to cart');
                 });
               },
               icon: const Icon(Icons.shopping_cart_checkout, size: 32),
@@ -34,16 +36,20 @@ class ProductDetailPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: const [
                     Text(
-                      "Tambah ke keranjang",
-                      style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                      "Add to cart",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
               ),
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green,
+                backgroundColor: Colors.deepOrange,
                 minimumSize: const Size(275, 75),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25)),
                 padding: const EdgeInsets.fromLTRB(20, 15, 10, 15),
               ),
             ),

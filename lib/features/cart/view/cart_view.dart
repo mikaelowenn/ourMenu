@@ -19,7 +19,9 @@ class CartView extends StatelessWidget {
 
         if (cart.cartItemList.isEmpty) {
           if (kDebugMode) print("Cart Empty!");
-          return Center(child: Text("Sepertinya keranjangmu masih kosong! :(", style: textTheme.titleMedium));
+          return Center(
+              child: Text("Your selected menu is empty",
+                  style: textTheme.titleMedium));
         }
 
         return Column(
@@ -30,19 +32,29 @@ class CartView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Flexible(
-                    child: cart.cartItemList.map((e) => e.selected).toList().contains(true)
+                    child: cart.cartItemList
+                            .map((e) => e.selected)
+                            .toList()
+                            .contains(true)
                         ? TextButton.icon(
-                            onPressed: () => cartBloc.add(const CartEventRemoveSelectedItem()),
-                            icon: const Icon(Icons.delete),
-                            label: const Text("Hapus"),
+                            onPressed: () => cartBloc
+                                .add(const CartEventRemoveSelectedItem()),
+                            icon: const Icon(
+                              Icons.delete,
+                              color: Colors.red,
+                            ),
+                            label: const Text("Remove",
+                                style: TextStyle(color: Colors.deepOrange)),
                           )
                         : const SizedBox(),
                   ),
                   Expanded(
                     child: CheckboxListTile(
-                      value: cart.cartItemList.every((element) => element.selected),
-                      onChanged: (value) => cartBloc.add(CartEventSelectAllItem(select: value!)),
-                      title: const Text("Pilih Semua", textAlign: TextAlign.end),
+                      value: cart.cartItemList
+                          .every((element) => element.selected),
+                      onChanged: (value) =>
+                          cartBloc.add(CartEventSelectAllItem(select: value!)),
+                      title: const Text("Select All", textAlign: TextAlign.end),
                       contentPadding: const EdgeInsets.all(0),
                     ),
                   ),

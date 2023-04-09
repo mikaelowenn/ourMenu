@@ -5,7 +5,6 @@ import 'package:mini_marketplace_app/features/catalog/catalog.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -17,7 +16,11 @@ class MyApp extends StatelessWidget {
           create: (context) => CatalogBloc()..add(CatalogFetched()),
         ),
       ],
-      child: const MaterialApp(
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.deepOrange,
+        ),
         home: CatalogPage(),
       ),
     );

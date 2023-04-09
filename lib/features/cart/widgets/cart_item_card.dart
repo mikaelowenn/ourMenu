@@ -23,10 +23,10 @@ class CartItemCard extends StatelessWidget {
           ..removeCurrentSnackBar()
           ..showSnackBar(
             SnackBar(
-              content: Text("${cartItem.item.title} dihapus dari keranjang"),
+              content: Text("${cartItem.item.title} remove from cart"),
               behavior: SnackBarBehavior.floating,
               action: SnackBarAction(
-                label: "Urungkan",
+                label: "Undo",
                 onPressed: () => myCart.add(const CartEventUndoRemoveItem()),
               ),
             ),
@@ -46,7 +46,8 @@ class CartItemCard extends StatelessWidget {
                       fit: BoxFit.cover,
                     ),
                     color: Colors.red,
-                    borderRadius: const BorderRadius.horizontal(left: Radius.circular(4)),
+                    borderRadius:
+                        const BorderRadius.horizontal(left: Radius.circular(4)),
                   ),
                 ),
               ),
@@ -57,7 +58,8 @@ class CartItemCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(cartItem.item.title, style: textTheme.titleMedium),
-                    Text('Rp${cartItem.item.price}', style: textTheme.titleLarge),
+                    Text('RM${cartItem.item.price}',
+                        style: textTheme.titleLarge),
                   ],
                 ),
               ),
@@ -71,8 +73,11 @@ class CartItemCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.end,
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Text("Jumlah : ${cartItem.count}", style: textTheme.bodyMedium),
-                          Text("Total : Rp${cartItem.item.price * cartItem.count}", style: textTheme.bodyLarge),
+                          Text("Total : ${cartItem.count}",
+                              style: textTheme.bodyMedium),
+                          Text(
+                              "Total : RM${cartItem.item.price * cartItem.count}",
+                              style: textTheme.bodyLarge),
                         ],
                       ),
                     ),
@@ -84,7 +89,8 @@ class CartItemCard extends StatelessWidget {
                     const VerticalDivider(indent: 0, endIndent: 0),
                     Checkbox(
                       value: cartItem.selected,
-                      onChanged: (value) => myCart.add(CartEventSelectItem(select: value!, cartItemId: cartItem.item.id)),
+                      onChanged: (value) => myCart.add(CartEventSelectItem(
+                          select: value!, cartItemId: cartItem.item.id)),
                     ),
                   ],
                 ),
